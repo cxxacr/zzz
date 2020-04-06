@@ -1,0 +1,81 @@
+.petBox {
+  width: 100%;
+  .petBanner {
+    width: 100%;
+    .slick-slide {
+      width: 100%;
+      height: 3rem;
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 3rem;
+      }
+    }
+  }
+  .petList {
+    width: 100%;
+    padding: 0.4rem;
+    .petInfo {
+      width: 100%;
+      height: 0.4rem;
+      position: relative;
+      font-size: 0.48rem;
+      .petInfoShop {
+        position: absolute;
+      }
+      .petInfoTitle {
+        position: absolute;
+        left: 0.55rem;
+      }
+    }
+    .petDetaiList {
+        margin-top: .2rem;
+        li {
+          box-sizing: border-box;
+          margin-bottom: .2rem;
+          padding: .1rem;
+          border: .02rem solid #DDD;
+
+          a {
+            display: block;
+            color: #000;
+
+            h3 {
+              line-height: .6rem;
+              font-size: .34rem;
+            }
+
+            .content {
+              display: flex;
+              .pic {
+                width: 2rem;
+                height: 1.4rem;
+                background: #EEE;
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+              .desc {
+                flex: 1;
+                font-size: .32rem;
+                padding-left: .2rem;
+                overflow: hidden;
+                p:first-child {
+                  color: #666;
+                  height: .8rem;
+                  line-height: .4rem;
+                  overflow: hidden;
+                }
+                p:last-child {
+                  color: #999;
+                }
+              }
+            }
+          }
+        }
+      }
+  }
+}

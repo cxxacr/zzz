@@ -1,0 +1,100 @@
+html,
+body {
+  font-size: 100px;
+}
+
+#root {
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+.NavHeaderBox {
+  @bg: rgb(0, 0, 0);
+  position: fixed;
+  top: 0;
+  left: 2.65;
+  width: 100%;
+  max-width: 750px;
+  height: 1.12rem;
+  line-height: 1.12rem;
+  background: @bg;
+  z-index: 9999;
+  color: #fff;
+  .NavLogoBox {
+    height: 100%;
+    .NavHomeBox {
+      height: 100%;
+      position: relative;
+      .logo {
+        width: 1.8rem;
+        height: 0.8rem;
+        top: 7%;
+        position: absolute;
+        left: 0.16rem;
+        font-size: 0;
+        background: url("../images/logo3.jpg") no-repeat;
+        background-size: 100% 100%;
+      }
+      .icon {
+        position: absolute;
+        top: 20%;
+        right: 0.16rem;
+      }
+    }
+    .filterBox {
+      background: @bg;
+      text-align: center;
+      position: absolute;
+      top: 1.1rem;
+      left: 0;
+      padding: 0 0.56rem;
+      width: 100%;
+      li {
+        border-top: 0.02rem solid lighten(@bg, 15%);
+        line-height: 1.1rem;
+        text-align: center;
+        color: #fff;
+        font-size: 0.32rem;
+      }
+    }
+  }
+}
+
+.NavFooterBox {
+  position: fixed;
+  left: 2.65;
+  bottom: 0;
+  border-top: 0.02rem solid #d5d5d5;
+  z-index: 9999;
+  width: 100%;
+  max-width: 750px;
+  height: 1.06rem;
+  line-height: 1.06rem;
+  background: #fff;
+  display: flex;
+  a {
+    flex: 1;
+    text-align: center;
+    color: #000;
+
+    i {
+      display: block;
+      margin-top: 0.12rem;
+      font-size: 0.4rem;
+    }
+    span {
+      display: block;
+      height: 0.5rem;
+      line-height: 0.5rem;
+      font-size: 0.32rem;
+    }
+    &.active {
+      color: rgb(254, 67, 101);
+      font-weight: bold;
+    }
+  }
+}
+.container {
+  width: 100%;
+  padding: 1.12rem 0 1.08rem 0;
+}

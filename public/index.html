@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no"
+    />
+    <title>宠物商城</title>
+  </head>
+  <body>
+    <!-- 把rem计算放到body头部,目的是为了保证css导入后再执行这段JS -->
+    <script>
+      (function anonymous() {
+        function computed() {
+          let html = document.documentElement,
+            winW = html.clientWidth,
+            desW = 750;
+          if (winW >= 750) {
+            html.style.fontSize = 100 + "px";
+            return;
+          }
+          html.style.fontSize = (winW / desW) * 100 + "px";
+        }
+        computed();
+        window.addEventListener("resize", computed, false);
+      })();
+    </script>
+    <div id="root"></div>
+  </body>
+</html>
