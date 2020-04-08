@@ -27,55 +27,88 @@
       }
       .petInfoTitle {
         position: absolute;
-        left: 0.55rem;
+        left: 0.7rem;
       }
     }
     .petDetaiList {
-        margin-top: .2rem;
-        li {
-          box-sizing: border-box;
-          margin-bottom: .2rem;
-          padding: .1rem;
-          border: .02rem solid #DDD;
+      margin-top: 0.2rem;
+      li {
+        box-sizing: border-box;
+        margin-bottom: 0.2rem;
+        padding: 0.1rem;
+        border: 0.02rem solid #ddd;
 
-          a {
-            display: block;
-            color: #000;
+        a {
+          display: block;
+          color: #000;
 
-            h3 {
-              line-height: .6rem;
-              font-size: .34rem;
-            }
+          h3 {
+            line-height: 0.6rem;
+            font-size: 0.34rem;
+          }
 
-            .content {
-              display: flex;
-              .pic {
-                width: 2rem;
-                height: 1.4rem;
-                background: #EEE;
-                img {
-                  width: 100%;
-                  height: 100%;
-                }
+          .content {
+            display: flex;
+            .pic {
+              width: 2rem;
+              height: 1.4rem;
+              background: #eee;
+              img {
+                width: 100%;
+                height: 100%;
               }
-              .desc {
-                flex: 1;
-                font-size: .32rem;
-                padding-left: .2rem;
+            }
+            .desc {
+              flex: 1;
+              font-size: 0.32rem;
+              padding-left: 0.2rem;
+              overflow: hidden;
+              p:first-child {
+                color: #666;
+                height: 0.8rem;
+                line-height: 0.4rem;
                 overflow: hidden;
-                p:first-child {
-                  color: #666;
-                  height: .8rem;
-                  line-height: .4rem;
-                  overflow: hidden;
-                }
-                p:last-child {
-                  color: #999;
-                }
+              }
+              p:last-child {
+                color: #999;
               }
             }
           }
         }
       }
+    }
+  }
+}
+.petInfo {
+  padding: 0 0.2rem;
+
+  video {
+    display: block;
+    width: 100%;
+    min-height: 3rem;
+    background: #000;
+  }
+
+  .content {
+    margin-top: 0.2rem;
+
+    h3 {
+      line-height: 0.6rem;
+    }
+
+    p {
+      line-height: 0.4rem;
+    }
+
+    span {
+      line-height: 0.6rem;
+      color: #9d0800;
+    }
+
+    button {
+      display: block;
+      margin-top: 0.2rem;
+      color: #fff !important;
+    }
   }
 }

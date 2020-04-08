@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import action from "../../store/actionCreators";
 import { Link } from "react-router-dom";
-import { Carousel, Icon,Button } from "antd";
+import { Carousel, Icon, Button } from "antd";
 export class Pet extends Component {
   componentDidMount() {
     let { bannerData, queryBannerInfo } = this.props;
@@ -29,9 +29,30 @@ export class Pet extends Component {
     }
     return text;
   }
+  handleClick = () => {
+    if (this.state.isLoading) return;
+    let { listData, queryPetList, petType } = this.props;
+    this.setState({
+      isLoading: true,
+    });
+    console.log(listData);
+    queryPetList({
+      page: listData.page + 1,
+      type: petType,
+      flag: 'push',
+    });
+  };
+  componentWillReceiveProps() {
+    this.setState({
+      isLoading: false,
+    });
+  }
+  state = {
+    isLoading: false,
+  };
   render() {
     let { bannerData } = this.props;
-    let { listData, petType } = this.props;
+    let { listData } = this.props;
     return (
       <div className="petBox">
         <Carousel className="petBanner" autoplay>
@@ -53,7 +74,7 @@ export class Pet extends Component {
           {listData.data && listData.data.length !== 0 ? (
             <div>
               <ul className="petDetaiList">
-                {listData.data.map((item,index) => {
+                {listData.data.map((item, index) => {
                   return (
                     <li key={index}>
                       <Link
@@ -77,7 +98,13 @@ export class Pet extends Component {
                   );
                 })}
               </ul>
-              <Button type="primary">点击加载更多</Button>
+              <Button
+                type="primary"
+                loading={this.state.isLoading}
+                onClick={this.handleClick}
+              >
+                点击加载更多
+              </Button>
             </div>
           ) : null}
         </div>

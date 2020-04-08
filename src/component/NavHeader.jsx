@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Icon } from "antd";
 import Transition from "react-transition-group/Transition";
+import action from "../store/actionCreators";
 
 const duration = 300,
   defaultStyle = {
@@ -14,9 +15,30 @@ const duration = 300,
     entered: { opacity: 1 },
   };
 export class NavHeader extends Component {
-  state = {
-    in: false,
+  handleClick = (ev) => {
+    let target = ev.target,
+      tagName = target.tagName;
+    let { queryPetList } = this.props;
+    if (tagName === "LI") {
+      let type = target.getAttribute("type");
+      queryPetList({
+        page: 1,
+        type,
+        flag: "replace",
+      });
+    }
+    this.setState({
+      in: false,
+    });
   };
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      in: false,
+    };
+    this.props.queryPay();
+    this.props.queryUnPay();
+  }
   render() {
     return (
       <header className="NavHeaderBox">
@@ -30,8 +52,8 @@ export class NavHeader extends Component {
               style={{ fontSize: ".6rem" }}
               onClick={() => {
                 this.setState({
-                  in: !this.state.in
-                })
+                  in: !this.state.in,
+                });
               }}
             />
           </div>
@@ -45,11 +67,12 @@ export class NavHeader extends Component {
                     ...transitionStyles[state],
                     display: this.state.in ? "block" : "none",
                   }}
+                  onClick={this.handleClick}
                 >
-                  <li>全部宠物</li>
-                  <li>小猫</li>
-                  <li>小狗</li>
-                  <li>小猪</li>
+                  <li type="all">全部宠物</li>
+                  <li type="cat">宠物猫</li>
+                  <li type="dog">宠物狗</li>
+                  <li type="pig">宠物猪</li>
                 </ul>
               );
             }}
@@ -60,10 +83,4 @@ export class NavHeader extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = {};
-
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(NavHeader)
-);
+export default withRouter(connect(null, action.pet)(NavHeader));

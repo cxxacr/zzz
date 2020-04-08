@@ -26,6 +26,7 @@ export class Login extends Component {
       if(parseFloat(result.code) === 0){
         this.props.history.go(-1);
         this.props.queryInfo();
+        this.props.queryPay();
         return ;
       } 
       loginFail();
@@ -94,5 +95,5 @@ export class Login extends Component {
 
 
 export default Form.create()(
-  connect(null, action.person)(Login)
+  connect(null, {...action.person,...action.pet})(Login)
 );
